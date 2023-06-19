@@ -23,7 +23,8 @@ services:
   backend-feed:
     image: udagram-api-feed
     volumes:
-      - C:\Users\reube\.aws:/root/.aws
+      # - C:\Users\reube\.aws:/root/.aws
+      - $HOME/.aws:/root/.aws
     environment:
       POSTGRES_USERNAME: $POSTGRES_USERNAME
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD 
