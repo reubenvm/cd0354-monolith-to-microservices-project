@@ -1,0 +1,47 @@
+
+C:\Users\reube\OneDrive\Documents\github\cd0354-monolith-to-microservices-project>kubectl get hpa
+NAME           REFERENCE                 TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+backend-feed   Deployment/backend-feed   0%/70%    3         5         3          2m31s
+backend-user   Deployment/backend-user   0%/70%    3         5         3          117s
+
+C:\Users\reube\OneDrive\Documents\github\cd0354-monolith-to-microservices-project>kubectl describe hpa
+Name:                     backend-feed
+Namespace:                default
+Labels:                   <none>
+Annotations:              autoscaling.alpha.kubernetes.io/conditions:
+                            [{"type":"AbleToScale","status":"True","lastTransitionTime":"2023-06-20T00:25:37Z","reason":"ScaleDownStabilized","message":"recent recomm...
+                          autoscaling.alpha.kubernetes.io/current-metrics:
+                            [{"type":"Resource","resource":{"name":"cpu","currentAverageUtilization":0,"currentAverageValue":"0"}}]
+CreationTimestamp:        Mon, 19 Jun 2023 17:25:22 -0700
+Reference:                Deployment/backend-feed
+Target CPU utilization:   70%
+Current CPU utilization:  0%
+Min replicas:             3
+Max replicas:             5
+Deployment pods:          3 current / 3 desired
+Events:
+  Type    Reason             Age    From                       Message
+  ----    ------             ----   ----                       -------
+  Normal  SuccessfulRescale  2m23s  horizontal-pod-autoscaler  New size: 3; reason: Current number of replicas below Spec.MinReplicas
+
+
+Name:                     backend-user
+Namespace:                default
+Labels:                   <none>
+Annotations:              autoscaling.alpha.kubernetes.io/conditions:
+                            [{"type":"AbleToScale","status":"True","lastTransitionTime":"2023-06-20T00:26:11Z","reason":"ScaleDownStabilized","message":"recent recomm...
+                          autoscaling.alpha.kubernetes.io/current-metrics:
+                            [{"type":"Resource","resource":{"name":"cpu","currentAverageUtilization":0,"currentAverageValue":"0"}}]
+CreationTimestamp:        Mon, 19 Jun 2023 17:25:56 -0700
+Reference:                Deployment/backend-user
+Target CPU utilization:   70%
+Current CPU utilization:  0%
+Min replicas:             3
+Max replicas:             5
+Deployment pods:          3 current / 3 desired
+Events:
+  Type    Reason             Age   From                       Message
+  ----    ------             ----  ----                       -------
+  Normal  SuccessfulRescale  109s  horizontal-pod-autoscaler  New size: 3; reason: Current number of replicas below Spec.MinReplicas
+
+C:\Users\reube\OneDrive\Documents\github\cd0354-monolith-to-microservices-project>
